@@ -35,6 +35,7 @@ gem 'tachyons-rails'
 gem 'devise'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'aws-sdk', '~> 2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
