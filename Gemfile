@@ -33,9 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'tachyons-rails'
 gem 'devise'
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
 gem 'aws-sdk', '~> 2'
+gem 'webshot'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

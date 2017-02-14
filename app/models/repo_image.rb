@@ -9,13 +9,11 @@ class RepoImage < ApplicationRecord
   end
 
   def self.create_pdf(user_id, filename, url='http://rubykin.com')
-    wicked_pdf = WickedPdf.new.pdf_from_url(url)
-    file_path = Rails.root.join('tmp', filename)
-    File.open(file_path, 'wb') { |f| f.write(wicked_pdf) }
-
+    ws = Webshot::Screenshot.instance
+    file = ws.capture(url, filename, width: 500, height: 200)
     obj = S3_BUCKET.object(filename)
-    if obj.upload_file(file_path)
-      self.create(user_id: user_id, url: obj.public_url)
+    if obj.upload_file(file.path)
+      self.create(user_id: user_id, file: filename, url: obj.public_url)
     end
   end
 end
