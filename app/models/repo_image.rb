@@ -8,7 +8,7 @@ class RepoImage < ApplicationRecord
 
   def self.create_webshot(repo)
     filename = "#{repo.name}.png"
-    ws = Webshot::Screenshot.instance
+    ws = Webshot::Screenshot.instance # need to add sidekiq to this
     file = ws.capture(repo.homepage, filename, timeout: 5, width: 500, height: 200)
 
     obj = S3_BUCKET.object(filename)
