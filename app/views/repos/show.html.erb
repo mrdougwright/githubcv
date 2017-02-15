@@ -1,8 +1,23 @@
-hi, this is repos#show
 
-<% @repos.each do |repo| %>
-  Name: <%= repo.name %>
-  Url: <%= repo.url %>
-  Desc: <%= repo.desc %>
-  <%= image_tag(repo.image_url) %>
-<% end %>
+<h1>
+  Projects by:
+  <a href="https://github.com/<%=params[:user_name]%>">
+    <%= params[:user_name] %>
+  </a>
+</h1>
+
+<div class='center w-80'>
+  <ul class="list left w-100">
+    <% @repos.each do |repo| %>
+      <a href="<%= repo.url %>" target="_blank" class="no-underline">
+        <li class="bg-washed-yellow ma2 ba b--dashed br3 pa2 grow">
+          <h4><%= repo.name %></h4>
+          <div class="pa1">
+            <%= image_tag(repo.image_url) %>
+          </div>
+          <div><%= repo.desc %></div>
+        </li>
+      </a>
+    <% end %>
+  </ul>
+</div>

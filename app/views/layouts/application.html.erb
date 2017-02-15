@@ -8,10 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-white navy pa3">
     <nav>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+      <%= link_to "Home", root_path, class: "f6 link dim br3 ph3 pv2 mb2 dib white bg-gray fr" %>
     </nav>
     <%= yield %>
   </body>

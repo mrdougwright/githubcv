@@ -1,6 +1,15 @@
-<h1>Hi</h1>
+<h1>Hi there,</h1>
 
-<h3>Enter a Github handle below to see that user's portfolio.</h3>
+<h3>Enter a Github username below to see that user's portfolio.</h3>
 
-<input type="text" name="reponame" id="reponame" placeholder="github handle" />
-<a href="#" onclick="this.href=document.getElementById('reponame').value">Go</a>
+<input type="text" name="handle" id="handle" placeholder="github handle" />
+<a href="#" class="f6 link dim br3 ph3 pv1 mb2 dib white bg-dark-blue" onclick="gotoHandle(this)">View Portfolio</a>
+<div id='pending' class='gray'></div>
+
+<script type="text/javascript">
+  function gotoHandle(that) {
+    document.getElementById('pending').innerText = 'Please wait, this may take awhile...'
+    name = document.getElementById('handle').value
+    that.href = name.replace('@','')
+  }
+</script>
