@@ -35,6 +35,8 @@ gem 'tachyons-rails'
 gem 'aws-sdk', '~> 2'
 gem 'webshot' # requires phantomjs, may be issue on server
 gem 'github_api'
+gem 'redis'
+gem 'sidekiq'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -9,11 +9,12 @@
 <div class='center w-80'>
   <ul class="list left w-100">
     <% @repos.each do |repo| %>
+      <% image_url = repo.image_url || "https://placekitten.com/800/450" %>
       <a href="<%= repo.url %>" target="_blank" class="no-underline">
         <li class="bg-washed-yellow ma2 ba b--dashed br3 pa2 grow">
           <h4><%= repo.name %></h4>
           <div class="pa1">
-            <%= image_tag(repo.image_url) %>
+            <%= image_tag(image_url) %>
           </div>
           <div><%= repo.desc %></div>
         </li>
