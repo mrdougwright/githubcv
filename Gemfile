@@ -32,9 +32,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'tachyons-rails'
-gem 'devise'
 gem 'aws-sdk', '~> 2'
-gem 'webshot'
+gem 'webshot' # requires phantomjs, may be issue on server
+gem 'github_api'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

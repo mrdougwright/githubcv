@@ -1,3 +1,8 @@
 hi, this is repos#show
 
-<%= image_tag(@pdf.url)%>
+<% @repos.each do |repo| %>
+  Name: <%= repo.name %>
+  Url: <%= repo.homepage %>
+  Desc: <%= repo.description %>
+  <%= image_tag(repo.image_url) %>
+<% end %>
