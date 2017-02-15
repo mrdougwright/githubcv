@@ -1,24 +1,13 @@
-# README
+# Github CV
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In other words, your resume via your Github repos. This app will go to your github account and collect all repos with a one-line description and a url. It will then present a 'portfolio page' with said collection.
 
-Things you may want to cover:
+You can test it out by going to the site, or directly to your portfolio page:
 
-* Ruby version
+`https://githubcv.herokuapp.com/<your github handle here>`
 
-* System dependencies
+Please beware, the first time will be slow as I have yet to add any background workers or checks to ensure that the screen grabber is doing its job.
 
-* Configuration
+Shout out to the [webshot](https://github.com/vitalie/webshot) gem.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy!
