@@ -2,7 +2,7 @@ hi, this is repos#show
 
 <% @repos.each do |repo| %>
   Name: <%= repo.name %>
-  Url: <%= repo.homepage %>
-  Desc: <%= repo.description %>
+  Url: <%= repo.url %>
+  Desc: <%= repo.desc %>
   <%= image_tag(repo.image_url) %>
 <% end %>

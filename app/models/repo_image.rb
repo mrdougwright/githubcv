@@ -1,19 +1,19 @@
 class RepoImage < ApplicationRecord
-  belongs_to :user
 
-  def self.find_or_create(user_name, filename)
-    user = User.find_by_user_name(user_name)
-    pdf = self.where(user_id: user.id, file: filename).first
-    return pdf if pdf
-    self.create_pdf(user.id, filename)
+  def self.find_or_create(repo)
+    img = self.find_by_name(repo.name)
+    return img if img
+    self.create_webshot(repo)
   end
 
-  def self.create_pdf(user_id, filename, url='http://rubykin.com')
+  def self.create_webshot(repo)
+    filename = "#{repo.name}.png"
     ws = Webshot::Screenshot.instance
-    file = ws.capture(url, filename, width: 500, height: 200)
+    file = ws.capture(repo.homepage, filename, timeout: 5, width: 500, height: 200)
+
     obj = S3_BUCKET.object(filename)
     if obj.upload_file(file.path)
-      self.create(user_id: user_id, file: filename, url: obj.public_url)
+      self.create(image_url: obj.public_url, url: repo.homepage, desc: repo.description, name: repo.name)
     end
   end
 end
