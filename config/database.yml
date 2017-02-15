@@ -82,4 +82,5 @@ production:
   <<: *default
   database: githubcv_production
   username: githubcv
+  pool: 25
   password: <%= ENV['GITHUBCV_DATABASE_PASSWORD'] %>
