@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'tachyons-rails'
 gem 'aws-sdk', '~> 2'
-gem 'webshot' # requires phantomjs, may be issue on server
+gem 'webshot', '~> 0.1.0' # requires phantomjs, may be issue on server
 gem 'github_api'
 gem 'redis'
 gem 'sidekiq'
