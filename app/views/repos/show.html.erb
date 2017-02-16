@@ -7,6 +7,9 @@
 </h1>
 
 <div class='center w-80'>
+  <% if @repos.collect{ |r| r.image_url.blank? }.any? %>
+    <p>Seeing cats? Check to make sure your project urls are returning a 200 in a timely manner and try again.</p>
+  <% end %>
   <ul class="list left w-100">
     <% @repos.each do |repo| %>
       <% image_url = repo.image_url || "https://placekitten.com/800/450" %>
