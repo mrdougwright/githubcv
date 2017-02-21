@@ -1,18 +1,13 @@
 class RepoImage < ApplicationRecord
 
   def self.find_or_create(repo)
-    obj = self.find_by_repo_name(repo.full_name)
-    if obj
-      return obj if obj.image_url.present?
-      self.create_webshot(obj, repo)
-    else
-      self.create_obj(repo)
-    end
+    self.find_by_repo_name(repo.full_name) || self.create(url: repo.homepage, desc: repo.description, name: repo.name, repo_name: repo.full_name)
   end
 
-  def self.create_obj(repo)
-    new_obj = self.create(url: repo.homepage, desc: repo.description, name: repo.name, repo_name: repo.full_name)
-    self.create_webshot(new_obj, repo)
+  def self.find_or_create_webshot(repo)
+    obj = self.find_or_create(repo)
+    return obj if obj && obj.image_url.present?
+    self.create_webshot(obj, repo)
   end
 
   def self.update_obj(repo)
