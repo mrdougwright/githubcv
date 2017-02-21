@@ -16,9 +16,9 @@ class Api::V1::ApiReposController < ApplicationController
 
   def update
     repos_hash = GithubAPI.new(params[:user_name]).repos_hash
-    repos_hash.each do |repo|
+    @repos = repos_hash.map do |repo|
       RepoImage.update_obj(repo)
     end
-    render json: :ok
+    render json: @repos
   end
 end
