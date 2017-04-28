@@ -38,6 +38,9 @@ gem 'github_api'
 gem 'redis'
 gem 'sidekiq'
 
+# free t shirt
+gem 'bugsnag'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
